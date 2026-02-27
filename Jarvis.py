@@ -154,7 +154,7 @@ print("✅ JARVIS Voice Link Established!")
 # import numpy as np
 
 # # --- CONFIGURATION ---
-# ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ==" # Get this from console.picovoice.ai
+# ACCESS_KEY = "Place Holder For API KEY" # Get this from console.picovoice.ai
 # WAKE_WORDS = ["jarvis", "Buddy"]  # Porcupine wake words
 
 # # Initialize Models
@@ -221,7 +221,7 @@ print("✅ JARVIS Voice Link Established!")
 # import winsound 
 
 # # --- 1. CONFIGURATION ---
-# ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ==" 
+# ACCESS_KEY = "Place Holder For API KEY" 
 # WAKE_WORDS = ["jarvis"]
 
 # # --- 2. INITIALIZE ENGINES ---
@@ -328,7 +328,7 @@ print("✅ JARVIS Voice Link Established!")
 # import winsound
 
 # # --- 1. CONFIGURATION ---
-# ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+# ACCESS_KEY = "Place Holder For API KEY"
 # WAKE_WORDS = ["jarvis"]
 
 # # --- 2. INITIALIZE MODELS ---
@@ -584,7 +584,7 @@ def handle_command_with_agent(command):
 # import time
 
 # # --- 1. CONFIGURATION ---
-# ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+# ACCESS_KEY = "Place Holder For API KEY"
 # WAKE_WORDS = ["jarvis"]
 # tts_queue = queue.Queue()
 
@@ -722,7 +722,7 @@ SHUT_UP_PATH = r"D:\Python\Jarvis\Shut-up_en_windows_v4_0_0.ppn"
 # 2. Initialize Porcupine with both the built-in and custom word
 # 'jarvis' is built-in, so it goes in 'keywords'
 # 'shut up' is custom, so its path goes in 'keyword_paths'
-ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+ACCESS_KEY = "Place Holder For API KEY"
 porcupine = pvporcupine.create(
     access_key=ACCESS_KEY,
     keywords=["jarvis"],
@@ -876,7 +876,7 @@ def handle_command_with_agent(command):
 # import time
 
 # # --- 1. CONFIGURATION ---
-# # ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+# # ACCESS_KEY = "Place Holder For API KEY"
 # # WAKE_WORDS = ["jarvis"]
 # tts_queue = queue.Queue()
 
@@ -1024,7 +1024,7 @@ import time
 import os
 
 # --- 1. CONFIGURATION ---
-ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+ACCESS_KEY = "Place Holder For API KEY"
 # Custom path for your trained keyword
 SHUT_UP_PATH = r"D:\Python\Jarvis\Shut-up_en_windows_v4_0_0.ppn"
 
@@ -1145,7 +1145,7 @@ def main():
                 # Case: 'Jarvis' (Index 0) detected
                 recorder.stop()
                 play_chime()
-                speak("Bataa chutiye kya madad karu ?", wait_for_finish=True)
+                speak("Bataa Bhai kya madad karu ?", wait_for_finish=True)
                 
                 play_listening_beep()
                 print("🎙️ Listening (8s window)...")
@@ -1187,4 +1187,5 @@ def main():
             torch.cuda.empty_cache()
 
 if __name__ == "__main__":
+
     main()
