@@ -138,7 +138,6 @@ import pyttsx3
 print("✅ JARVIS Voice Link Established!")
 
 
-
 import os
 import webbrowser
 import json
@@ -259,155 +258,6 @@ def handle_command_with_agent(command):
             speak("I could not complete that action.")
     else:
         speak("Action cancelled.")
-
-
-
-# 
-import pvporcupine
-SHUT_UP_PATH = r"D:\Python\Jarvis\Shut-up_en_windows_v4_0_0.ppn"
-
-# 2. Initialize Porcupine with both the built-in and custom word
-# 'jarvis' is built-in, so it goes in 'keywords'
-# 'shut up' is custom, so its path goes in 'keyword_paths'
-ACCESS_KEY = "Place Holder For API KEY"
-porcupine = pvporcupine.create(
-    access_key=ACCESS_KEY,
-    keywords=["jarvis"],
-    keyword_paths=[SHUT_UP_PATH]
-)
-
-# 3. Define the word list so the logic knows which index is which
-# Index 0 = jarvis, Index 1 = shut up
-WAKE_WORDS = ["jarvis", "shut up"]
-
-# %%
-# ================== AGENT LAYER (SAFE / LIGHTWEIGHT) ==================
-
-# import os
-import webbrowser
-import json
-
-# ---- Allowed intents (WHITELIST) ----
-ALLOWED_INTENTS = {
-    "open_app",
-    "open_folder",
-    "web_search",
-    "chat_only"
-}
-
-# ---- Intent Detection ----
-def detect_intent(command: str):
-    """
-    Uses LLM to decide intent.
-    Returns dict: {intent, arguments}
-    """
-    prompt = f"""
-You are an intent classifier for a desktop assistant.
-
-Return ONLY valid JSON.
-NO explanations.
-NO markdown.
-
-Allowed intents:
-- open_app
-- open_folder
-- web_search
-- chat_only
-
-User command:
-"{command}"
-
-JSON format:
-{{
-  "intent": "<one_of_allowed>",
-  "arguments": {{}}
-}}
-"""
-
-    try:
-        response = ollama.chat(
-            model="phi3:mini",
-            messages=[{"role": "user", "content": prompt}]
-        )
-        data = json.loads(response["message"]["content"])
-
-        if data.get("intent") not in ALLOWED_INTENTS:
-            return {"intent": "chat_only", "arguments": {}}
-
-        return data
-
-    except Exception:
-        return {"intent": "chat_only", "arguments": {}}
-
-# ---- Confirmation (voice-based, simple) ----
-def confirm_action(action_text):
-    speak(f"Should I {action_text}? Please say yes or no.")
-    time.sleep(2)  # give user time to respond
-    return True  # Phase-1: auto-confirm (we tighten later)
-
-# ---- Tool Executors ----
-def execute_tool(intent, args):
-    if intent == "open_app":
-        app = args.get("name", "")
-        if app:
-            os.startfile(app)
-            speak(f"Opening {app}")
-            return True
-
-    if intent == "open_folder":
-        path = args.get("path", "")
-        if path and os.path.exists(path):
-            os.startfile(path)
-            speak("Opening folder")
-            return True
-
-    if intent == "web_search":
-        query = args.get("query", "")
-        if query:
-            webbrowser.open(f"https://www.google.com/search?q={query}")
-            speak(f"Searching for {query}")
-            return True
-
-    return False
-
-# ---- Agent Orchestrator ----
-def handle_command_with_agent(command):
-    """
-    Entry point for agent-based execution.
-    Falls back to normal chat if no action needed.
-    """
-    decision = detect_intent(command)
-    intent = decision.get("intent")
-    args = decision.get("arguments", {})
-
-    # CHAT ONLY → fallback to your existing brain
-    if intent == "chat_only":
-        reply = get_ollama_response(command)
-        speak(reply)
-        return
-
-    # Build human-friendly confirmation text
-    if intent == "open_app":
-        action_text = f"open the application {args.get('name', '')}"
-    elif intent == "open_folder":
-        action_text = f"open the folder {args.get('path', '')}"
-    elif intent == "web_search":
-        action_text = f"search the web for {args.get('query', '')}"
-    else:
-        action_text = "perform this action"
-
-    # Confirm
-    if confirm_action(action_text):
-        success = execute_tool(intent, args)
-        if not success:
-            speak("I could not complete that action.")
-    else:
-        speak("Action cancelled.")
-
-# ================== END AGENT LAYER ==================
-
-
-
 
 
 import pvporcupine
@@ -426,7 +276,7 @@ import time
 import os
 
 # --- 1. CONFIGURATION ---
-ACCESS_KEY = "Place Holder For API KEY"
+ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
 # Custom path for your trained keyword
 SHUT_UP_PATH = r"D:\Python\Jarvis\Shut-up_en_windows_v4_0_0.ppn"
 
@@ -547,7 +397,7 @@ def main():
                 # Case: 'Jarvis' (Index 0) detected
                 recorder.stop()
                 play_chime()
-                speak("Bataa Bhai kya madad karu ?", wait_for_finish=True)
+                speak("Bataa chutiye kya madad karu ?", wait_for_finish=True)
                 
                 play_listening_beep()
                 print("🎙️ Listening (8s window)...")
@@ -589,6 +439,6 @@ def main():
             torch.cuda.empty_cache()
 
 if __name__ == "__main__":
-
     main()
+
 
