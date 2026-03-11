@@ -1,8 +1,7 @@
 # %%
 import sys
 
-# 1. Force install numpy directly into the CURRENT kernel's path
-# !{sys.executable} -m pip install "numpy<2.0.0" --force-reinstall
+
 
 # 2. Hard-reset the internal path cache
 import importlib
@@ -440,5 +439,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
