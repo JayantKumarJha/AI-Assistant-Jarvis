@@ -275,7 +275,7 @@ import time
 import os
 
 # --- 1. CONFIGURATION ---
-ACCESS_KEY = "wvTKtupOtS7IqA8/90dfkzogD2xOEU9DVljtmx5YoNDXs97cxFozAQ=="
+ACCESS_KEY = "Place Holder FOR API KEY"
 # Custom path for your trained keyword
 SHUT_UP_PATH = r"D:\Python\Jarvis\Shut-up_en_windows_v4_0_0.ppn"
 
@@ -439,6 +439,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
