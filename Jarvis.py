@@ -47,10 +47,7 @@ print(f"✅ Success! Torch version: {torch.__version__}")
 print(f"✅ GPU Recognized: {torch.cuda.is_available()}")
 print(f"✅ Device Name: {torch.cuda.get_device_name(0)}")
 
-# %%
 
-
-# %%
 import sys
 import os
 import pkg_resources
