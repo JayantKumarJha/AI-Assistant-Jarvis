@@ -12,10 +12,7 @@ import numpy as np
 print(f"✅ Success! Numpy Version: {np.__version__}")
 print(f"📂 Location: {np.__file__}")
 
-# %%
 
-
-# %%
 import numpy as np
 import sys
 
