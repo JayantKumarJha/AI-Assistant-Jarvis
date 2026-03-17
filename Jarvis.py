@@ -72,7 +72,7 @@ check_package("ollama")
 print("-" * 30)
 check_package("torch")
 
-# %%
+
 import torch
 import ollama
 from faster_whisper import WhisperModel
