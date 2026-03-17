@@ -3,7 +3,7 @@ import sys
 
 
 
-# 2. Hard-reset the internal path cache
+
 import importlib
 importlib.invalidate_caches()
 
